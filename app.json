@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "readingcorner", 
     "name": "reading-corner-app",
     "slug": "reading-corner-app",
     "version": "1.0.0",
