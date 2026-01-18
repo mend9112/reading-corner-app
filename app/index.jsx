@@ -1,17 +1,23 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link } from 'expo-router';
+import Graphic from '../assets/images/img-page1.png'
 
 const Home = () => {
   return (
     <View style={styles.container}>
-      <View style={ {height: 150} }>
+
+      {/* Image and Text */}
+      <View style={ {height: 450} }>
+
+        <Image source={Graphic} style={styles.image}/>
+
         <Text style={styles.h1}>
           Welcome to ReadingCorner, the online community for readers!
         </Text>
       </View>
       
-
+      {/* Progress Bar */}
       <View style={styles.progress}>
         <View style={styles.bubbles}>
           <FontAwesome name="circle" size={20} color="black" />
@@ -31,17 +37,24 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    marginTop: 275,
+    marginTop: 50,
     padding: 40
   },
   h1: {
     fontSize: 28,
     textAlign: 'center'
   },
+  image: {
+    width: 350,
+    height: 350,
+    resizeMode: 'contain',
+    marginBottom: 20,
+    alignSelf: 'center'
+  },
   progress: {
     flexDirection: 'row',
     width: 100,
-    marginTop: 150
+    marginTop: 200
   },
   bubbles: {
     flexDirection: 'row',
