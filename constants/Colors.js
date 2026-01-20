@@ -17,16 +17,26 @@ const colorsRC = {
 export const Colors = {
   dark: {
     text: colorsRC.cream,
-    title: colorsRC.sage,
-    background: colorsRC.ink,
+    header: colorsRC.cream,
+    subheader: colorsRC.sage,
+    background: colorsRC.forest,
+
     navBackground: colorsRC.forest,
     iconColor: colorsRC.cream,
+
+    bubble: colorsRC.beige,
+    btnPrimary: colorsRC.caramel
   },
   light: {
     text: colorsRC.ink,
-    title: colorsRC.sage,
+    header: colorsRC.forest,
+    subheader: colorsRC.sage,
     background: colorsRC.offWhite,
+    
     navBackground: colorsRC.forest,
     iconColor: colorsRC.cream,
+
+    bubble: colorsRC.beige,
+    btnPrimary: colorsRC.caramel
   },
 }

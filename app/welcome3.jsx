@@ -1,23 +1,39 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, useColorScheme } from 'react-native'
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link } from 'expo-router';
-import Graphic from '../assets/images/img-page3.png'
+
+// Graphic Imports
+import GraphicLight from '../assets/images/img-page3-light.png'
+import GraphicDark from '../assets/images/img-page3-dark.png'
+import { Colors } from '../constants/Colors';
+
+// Custom Themed View
+import ThemedView from '../components/ThemedView';
+import ThemedText from '../components/ThemedText';
 
 const Welcome3 = () => {
+  const colorScheme = useColorScheme()
+  const theme = Colors[colorScheme] ?? Colors.light
+  const bubblesColors = theme.bubble
+  const btnColor = theme.btnPrimary
+      
+  const graphic = colorScheme === 'dark' ? GraphicDark : GraphicLight
+
   return (
-    <View style={styles.container}>
+    <ThemedView style={styles.container}>
 
       {/* Image and Text */}
       <View style={ {height: 450} }>
 
-        <Image source={Graphic} style={styles.image}/>
+        <Image source={graphic} style={styles.image}/>
 
-        <Text style={styles.h1}>Track your reading journey</Text>
-        <Text style={styles.ul}>• Book tracking and reading progress</Text>
-        <Text style={styles.ul}>• Custom shelves and statistics</Text>
-        <Text style={styles.ul}>• Book recommmendations based on your shelved books</Text>
+        <ThemedText type='header'>Track your reading journey</ThemedText>
+        <ThemedText type='body' style={styles.ul}>• Book tracking and reading progress</ThemedText>
+        <ThemedText type='body' style={styles.ul}>• Custom shelves and statistics</ThemedText>
+        <ThemedText type='body' style={styles.ul}>• Book recommmendations based on your shelved books</ThemedText>
 
-        <View style={styles.button}>
+        {/* Button */}
+        <View style={ [styles.button, {backgroundColor: btnColor}] }>
           <Link href="/loginLanding" style={ {fontSize: 20} }>Get Started!</Link>
         </View>
       </View>
@@ -25,15 +41,15 @@ const Welcome3 = () => {
       {/* Progress Bar */}
       <View style={styles.progress}>
         <View style={styles.bubbles}>
-          <Link href="/"><FontAwesome name="circle" size={20} color="black" /></Link>
-          <Link href="/welcome2"><FontAwesome name="circle" size={20} color="black" /></Link>
-          <FontAwesome name="circle" size={20} color="black" />
+          <Link href="/"><FontAwesome name="circle" size={20} color={bubblesColors} /></Link>
+          <Link href="/welcome2"><FontAwesome name="circle" size={20} color={bubblesColors} /></Link>
+          <FontAwesome name="circle" size={20} color={bubblesColors} />
         </View>
 
-        <Link href="/loginLanding" style={ {marginLeft: 70} }>Skip</Link>
+        <Link href="/loginLanding" style={ {marginLeft: 65, color: bubblesColors, fontWeight: 'bold'} }>Skip</Link>
       </View>
 
-    </View>
+    </ThemedView>
   )
 }
 
@@ -64,7 +80,6 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 40,
     padding: 15,
-    backgroundColor: '#DDDDDD',
     alignItems: 'center',
     borderRadius: 25
   },

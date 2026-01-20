@@ -1,33 +1,46 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, useColorScheme } from 'react-native'
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link } from 'expo-router';
-import Graphic from '../assets/images/img-page1.png'
+
+// Graphic Imports
+import GraphicLight from '../assets/images/img-page1-light.png'
+import GraphicDark from '../assets/images/img-page1-dark.png'
+import { Colors } from '../constants/Colors';
+
+// Custom Themed View
+import ThemedView from '../components/ThemedView';
+import ThemedText from '../components/ThemedText';
 
 const Home = () => {
-  return (
-    <View style={styles.container}>
+  const colorScheme = useColorScheme()
+  const theme = Colors[colorScheme] ?? Colors.light
+  const bubblesColors = theme.bubble
+      
+  const graphic = colorScheme === 'dark' ? GraphicDark : GraphicLight
 
+  return (
+    <ThemedView style={styles.container}>
       {/* Image and Text */}
       <View style={ {height: 450} }>
 
-        <Image source={Graphic} style={styles.image}/>
+        <Image source={graphic} style={styles.image}/>
 
-        <Text style={styles.h1}>
+        <ThemedText type='header'>
           Welcome to ReadingCorner, the online community for readers!
-        </Text>
+        </ThemedText>
       </View>
       
       {/* Progress Bar */}
       <View style={styles.progress}>
         <View style={styles.bubbles}>
-          <FontAwesome name="circle" size={20} color="black" />
-          <Link href="/welcome2"><FontAwesome name="circle-o" size={20} color="black" /></Link>
-          <Link href="/welcome3"><FontAwesome name="circle-o" size={20} color="black" /></Link>
+          <FontAwesome name="circle" size={20} color={bubblesColors} />
+          <Link href="/welcome2"><FontAwesome name="circle-o" size={20} color={bubblesColors} /></Link>
+          <Link href="/welcome3"><FontAwesome name="circle-o" size={20} color={bubblesColors} /></Link>
         </View>
 
-        <Link href="/loginLanding" style={ {marginLeft: 70} }>Skip</Link>
+        <Link href="/loginLanding" style={ {marginLeft: 65, color: bubblesColors, fontWeight: 'bold'} }>Skip</Link>
       </View>
-    </View>
+    </ThemedView>
   )
 }
 
@@ -39,10 +52,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 50,
     padding: 40
-  },
-  h1: {
-    fontSize: 28,
-    textAlign: 'center'
   },
   image: {
     width: 350,

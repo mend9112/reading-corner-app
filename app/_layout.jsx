@@ -20,7 +20,7 @@ const RootLayout = () => {
     //   <Stack.Screen name="signIn" options={ {headerShown: false} }/>
     //   <Stack.Screen name="createAccount" options={ {headerShown: false} }/>
     // </Stack>
-    <View><Text>Hello</Text></View>
+    <Slot />
   )
 }
 
