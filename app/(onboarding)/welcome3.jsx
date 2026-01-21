@@ -5,11 +5,11 @@ import { Link } from 'expo-router';
 // Graphic Imports
 import GraphicLight from '../assets/images/img-page3-light.png'
 import GraphicDark from '../assets/images/img-page3-dark.png'
-import { Colors } from '../constants/Colors';
+import { Colors } from '../../constants/Colors';
 
 // Custom Themed View
-import ThemedView from '../components/ThemedView';
-import ThemedText from '../components/ThemedText';
+import ThemedView from '../../components/ThemedView';
+import ThemedText from '../../components/ThemedText';
 
 const Welcome3 = () => {
   const colorScheme = useColorScheme()
