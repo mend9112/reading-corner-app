@@ -14,29 +14,39 @@ const colorsRC = {
   copper: '#9E553A',
 };
 
+const navBackground = colorsRC.forest;
+const iconColor = colorsRC.cream;
+const btnPrimary = colorsRC.caramel;
+const btnPrimaryText = colorsRC.offWhite;
+
 export const Colors = {
+  navBackground: colorsRC.forest,
+  iconColor: colorsRC.cream,
+
   dark: {
-    text: colorsRC.cream,
     header: colorsRC.cream,
     subheader: colorsRC.sage,
+    text: colorsRC.cream,
     background: colorsRC.forest,
 
-    navBackground: colorsRC.forest,
-    iconColor: colorsRC.cream,
+    // navBackground: colorsRC.forest,
+    // iconColor: colorsRC.cream,
 
     bubble: colorsRC.beige,
-    btnPrimary: colorsRC.caramel
+    btnPrimary: colorsRC.caramel,
+    btnPrimaryText: colorsRC.offWhite
   },
   light: {
-    text: colorsRC.ink,
     header: colorsRC.forest,
     subheader: colorsRC.sage,
+    text: colorsRC.ink,
     background: colorsRC.offWhite,
     
-    navBackground: colorsRC.forest,
-    iconColor: colorsRC.cream,
+    // navBackground: colorsRC.forest,
+    // iconColor: colorsRC.cream,
 
     bubble: colorsRC.beige,
-    btnPrimary: colorsRC.caramel
+    btnPrimary: colorsRC.caramel,
+    btnPrimaryText: colorsRC.offWhite
   },
 }

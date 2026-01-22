@@ -6,7 +6,9 @@ const ThemedView = ( {style, ...props} ) => {
   const theme = Colors[colorScheme] ?? Colors.light
 
   return (
-    <View style={ [{backgroundColor: theme.background}, style ] } {...props} />
+    // // Sets the Background color for all Themed Views w/ Light/Dark Mode color scheme
+    // <View style={ [{backgroundColor: theme.background}, style ] } {...props} /> 
+    <View style={  style  } {...props} />
   )
 }
 

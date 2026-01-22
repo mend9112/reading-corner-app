@@ -1,14 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Text, View } from 'react-native'
+import { Slot, Stack } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
+
+/* Custom Themed Elements */
+import { SetColorMode } from '../../components/ThemedElements'
 
 const OnboardingLayout = () => {
+  const theme = SetColorMode(); 
+
   return (
-    <View>
-      <Text>OnboardingLayout</Text>
-    </View>
+    <>
+      <StatusBar style="auto" />
+      {/* <Stack screenOptions={{
+        headerShown: false,
+        animation: 'none',
+        contentStyle: { backgroundColor: theme.background }
+      }}/> */}
+      <Slot/>
+    </>
   )
 }
 
 export default OnboardingLayout
-
-const styles = StyleSheet.create({})

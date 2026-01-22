@@ -1,44 +1,21 @@
-import { StyleSheet, Text, View, Image, useColorScheme } from 'react-native'
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link } from 'expo-router';
+import { StyleSheet, View } from 'react-native'
 
 // Graphic Imports
 import GraphicLight from '../assets/images/img-page1-light.png'
 import GraphicDark from '../assets/images/img-page1-dark.png'
-import { Colors } from '../constants/Colors';
 
 // Custom Themed View
 import ThemedView from '../components/ThemedView';
-import ThemedText from '../components/ThemedText';
+import { OnboardImage, SetImageColor, PrimaryBtn  } from '../components/ThemedElements';
 
 const Home = () => {
-  const colorScheme = useColorScheme()
-  const theme = Colors[colorScheme] ?? Colors.light
-  const bubblesColors = theme.bubble
-      
-  const graphic = colorScheme === 'dark' ? GraphicDark : GraphicLight
+  const graphic = SetImageColor(GraphicLight, GraphicDark)
 
   return (
     <ThemedView style={styles.container}>
-      {/* Image and Text */}
-      <View style={ {height: 450} }>
-
-        <Image source={graphic} style={styles.image}/>
-
-        <ThemedText type='header'>
-          Welcome to ReadingCorner, the online community for readers!
-        </ThemedText>
-      </View>
-      
-      {/* Progress Bar */}
-      <View style={styles.progress}>
-        <View style={styles.bubbles}>
-          <FontAwesome name="circle" size={20} color={bubblesColors} />
-          <Link href="/welcome2"><FontAwesome name="circle-o" size={20} color={bubblesColors} /></Link>
-          <Link href="/welcome3"><FontAwesome name="circle-o" size={20} color={bubblesColors} /></Link>
-        </View>
-
-        <Link href="/loginLanding" style={ {marginLeft: 65, color: bubblesColors, fontWeight: 'bold'} }>Skip</Link>
+      <View style={ {height: 475} }>
+        <OnboardImage source={graphic}/>
+        <PrimaryBtn href="/onboard1" text="START APP"/>
       </View>
     </ThemedView>
   )
@@ -52,23 +29,5 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 50,
     padding: 40
-  },
-  image: {
-    width: 350,
-    height: 350,
-    resizeMode: 'contain',
-    marginBottom: 20,
-    alignSelf: 'center'
-  },
-  progress: {
-    flexDirection: 'row',
-    width: 100,
-    marginTop: 200
-  },
-  bubbles: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: 100,
-    justifyContent: 'space-between',
   }
 })

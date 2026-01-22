@@ -1,29 +1,29 @@
-import { StyleSheet, Text, useColorScheme, View } from 'react-native'
+import { Text, View } from 'react-native'
 import { Slot, Stack } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
+
+/* Custom Themed Elements */
+import { SetColorMode } from '../components/ThemedElements'
 import { Colors } from '../constants/Colors'
 
 const RootLayout = () => {
-  const colorScheme = useColorScheme();
-  const theme = Colors[colorScheme] ?? Colors.light;
+  const theme = SetColorMode();
 
   return (
-    // <Stack screenOptions={ {
-    //   headerStyle: { backgroundColor: theme.background },
-    //   headerTitleStyle: { color: theme.text },
-    //   headerTintColor: theme.text,
-    //   contentStyle: { backgroundColor: theme.background }
-    // } }>
-    //   <Stack.Screen name="index" options={ {headerShown: false} }/>
-    //   <Stack.Screen name="welcome2" options={ {headerShown: false} }/>
-    //   <Stack.Screen name="welcome3" options={ {headerShown: false} }/>
-    //   <Stack.Screen name="loginLanding" options={ {headerShown: false} }/>
-    //   <Stack.Screen name="signIn" options={ {headerShown: false} }/>
-    //   <Stack.Screen name="createAccount" options={ {headerShown: false} }/>
-    // </Stack>
-    <Slot />
+    <>
+      <StatusBar style="auto" />
+      <Stack screenOptions={{
+        headerStyle: { backgroundColor: Colors.navBackground },
+        // headerTitleStyle: { color: Colors.iconColor },
+        headerTintColor: Colors.iconColor,
+        contentStyle: { backgroundColor: theme.background }
+      }}>
+        <Stack.Screen name="(onboarding)" options={{ headerShown: false, animation: 'none' }} />
+        <Stack.Screen name="index" options={{ headerShown: false, animation: 'none' }} />
+
+      </Stack>
+    </>
   )
 }
 
 export default RootLayout
-
-const styles = StyleSheet.create({})

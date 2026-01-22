@@ -1,16 +1,21 @@
 import { StyleSheet, Text, useColorScheme } from 'react-native'
-import PropTypes from 'prop-types'
-
-import { Colors } from '../constants/Colors'
+import { useFonts, Lato_400Regular, Lato_900Black } from '@expo-google-fonts/lato';
+import { SetColorMode } from './ThemedElements'
 
 const ThemedText = ( { style, type = 'body', ...props} ) => {
-  const colorScheme = useColorScheme()
-  const theme = Colors[colorScheme] ?? Colors.light
+  
+  const theme = SetColorMode()
 
-  // const textColor = title ? theme.title : theme.text
+  const [loaded] = useFonts({
+    Lato_400Regular,
+    Lato_900Black,
+    'Panel-Sans-Black': require('../assets/fonts/Panel-Sans-Black.otf'),
+    'Panel-Sans-Bold': require('../assets/fonts/Panel-Sans-Bold.otf')
+  });
 
   const textColor = type === 'header' ? theme.header :
                     type === 'subheader' ? theme.subheader :
+                    type === 'btn-primary' ? theme.btnPrimaryText :
                     theme.text
 
   return (
@@ -20,6 +25,9 @@ const ThemedText = ( { style, type = 'body', ...props} ) => {
         type === 'header' ? styles.header : undefined,
         type === 'subheader' ? styles.subheader : undefined,
         type === 'body' ? styles.body : undefined,
+        type === 'ul' ? styles.ul : undefined,
+        type === 'btn-primary' ? styles.btnPrimaryText : undefined,
+        type === 'other' ? styles.other : undefined,
         style 
       ] } 
       {...props} 
@@ -27,15 +35,12 @@ const ThemedText = ( { style, type = 'body', ...props} ) => {
   )
 }
 
-ThemedText.propTypes = {
-  type: PropTypes.oneOf (['header', 'subheader', 'body']),
-};
-
 export default ThemedText
 
 const styles = StyleSheet.create({
   header: {
-    fontSize: 28,
+    fontFamily: 'Panel-Sans-Black',
+    fontSize: 24,
     textAlign: 'center',
     fontWeight: 'bold'
   },
@@ -45,7 +50,20 @@ const styles = StyleSheet.create({
     fontWeight: '600'
   },
   body: {
-    // fontSize: 16,
-    // textAlign: 'center'
+    fontFamily: 'Lato_400Regular',
+  },
+  ul: {
+    fontFamily: 'Lato_400Regular',
+    fontSize: 16,
+    marginTop: 10,
+    marginLeft: 20,
+    marginRight: 20
+  },
+  btnPrimaryText: {
+    fontFamily: 'Lato_900Black',
+    fontSize: 20,
+  },
+  other: {
+    fontFamily: 'Lato_900Black',
   }
 })
