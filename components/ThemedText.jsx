@@ -20,6 +20,7 @@ const ThemedText = ( { style, type = 'body', mode = '', ...props} ) => {
   const textColor = type === 'header' ? theme.header :
                     type === 'subheader' ? theme.subheader :
                     type === 'btn-primary' ? theme.btnPrimaryText :
+                    type === 'link' ? theme.btnPrimary :
                     theme.text
 
   return (
@@ -30,6 +31,7 @@ const ThemedText = ( { style, type = 'body', mode = '', ...props} ) => {
         type === 'subheader' ? styles.subheader : undefined,
         type === 'body' ? styles.body : undefined,
         type === 'ul' ? styles.ul : undefined,
+        type === 'link' ? styles.link : undefined,
         type === 'btn-primary' ? styles.btnPrimaryText : undefined,
         type === 'other' ? styles.other : undefined,
         style 
@@ -54,6 +56,10 @@ const styles = StyleSheet.create({
     fontWeight: '600'
   },
   body: {
+    fontFamily: 'Lato_400Regular',
+    fontSize: 15
+  },
+  link: {
     fontFamily: 'Lato_400Regular',
     fontSize: 15
   },

@@ -14,10 +14,11 @@ const colorsRC = {
   copper: '#9E553A',
 };
 
-const navBackground = colorsRC.forest;
-const iconColor = colorsRC.cream;
-const btnPrimary = colorsRC.caramel;
-const btnPrimaryText = colorsRC.offWhite;
+export const navBackground = colorsRC.forest;
+export const iconColor = colorsRC.cream;
+export const link = colorsRC.caramel;
+export const btnPrimary = colorsRC.caramel;
+export const btnPrimaryText = colorsRC.offWhite;
 
 export const Colors = {
   navBackground: colorsRC.forest,

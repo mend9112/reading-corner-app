@@ -1,7 +1,9 @@
-import { StyleSheet, useColorScheme, Image, View } from 'react-native'
+import { StyleSheet, useColorScheme, Image, View, TextInput } from 'react-native'
 import { Link } from 'expo-router'
 
+/* Icon Imports */
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import Octicons from '@expo/vector-icons/Octicons';
 
 /* Custom Themed Elements */
 import ThemedText from './ThemedText'
@@ -195,6 +197,68 @@ const PrimaryBtn = ( {href, text="Button", style, ...props} ) => {
 
 export { PrimaryBtn }
 
+const ThemedLink = ({ href, text, style, ...props }) => {
+  const theme = SetColorMode()
+
+  return (
+    <Link href={href} styles={style} {...props}>
+      <ThemedText type='link'>{text}</ThemedText>
+    </Link>
+  )
+}
+
+export { ThemedLink }
+
+/* ***************************************************************************
+Function:   ThemedTextInput
+
+Purpose:    Creates the custom templated for a text input field
+
+Parameters: style - Additional styles to apply to the button.
+
+Returns:    A TextInput component styled
+*************************************************************************** */
+const ThemedTextInput = ({ text, style }) => {
+  const theme = SetColorMode()
+
+  return (
+    <View>
+      <TextInput
+        style={[ 
+          styles.input,
+          style
+        ]}
+        placeholder={text}>
+      </TextInput>
+    </View>
+
+    // <Octicons name="person" size={24} color={theme.bubble} />
+  )
+}
+
+export { ThemedTextInput }
+
+const Icon = ({ lib, iconName, iconsSize, iconColor }) => {
+  let Component
+  if (lib === 'Octicons')
+  {
+    Component = <Octicons />
+  }
+  else if (lib === 'FontAwesome')
+  {
+    Component = <FontAwesome />
+  }
+  else {
+    //return null
+  }
+
+  return (
+    <Component name={iconName} size={iconsSize} color={iconColor} />
+  )
+}
+
+export { Icon }
+
 /* Stylesheet for ThemedElement components */
 const styles = StyleSheet.create({
   bubbles: {
@@ -212,7 +276,8 @@ const styles = StyleSheet.create({
     marginTop: 40,
     padding: 15,
     alignItems: 'center',
-    borderRadius: 25
+    borderRadius: 25,
+    width: 300
   },
   image: {
     width: 350,
@@ -226,5 +291,18 @@ const styles = StyleSheet.create({
     height: 65,
     resizeMode: 'contain',
     alignSelf: 'center'
+  },
+  input: {
+    borderColor: '#D3CABA',
+    height: 40,
+    margin: 12,
+    borderWidth: 2,
+    padding: 10,
+    borderRadius: 20,
+    width: 350,
+    alignSelf: 'center'
+  },
+  link: {
+    color: '#C67D43'
   }
 })

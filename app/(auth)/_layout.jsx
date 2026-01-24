@@ -3,6 +3,8 @@ import { StatusBar } from 'expo-status-bar'
 
 /* Custom Themed Elements */
 import { SetColorMode } from '../../components/ThemedElements'
+import { Colors } from '../../constants/Colors'
+
 
 const AuthLayout = () => {
   // const theme = SetColorMode();
@@ -11,10 +13,15 @@ const AuthLayout = () => {
     <>
       <StatusBar style="auto" />
       <Stack screenOptions={{
-        headerShown: false,
-        // contentStyle: { backgroundColor: theme.background }
+        headerStyle: { backgroundColor: Colors.navBackground },
+        headerTintColor: Colors.iconColor,
+        headerBackTitle: 'Back',
+        headerTitle: '', 
+        headerTransparent: true,
       }}>
-.      </Stack>
+        <Stack.Screen name="loginLanding" options={{}} />
+        <Stack.Screen name="signIn" options={{}} />
+      </Stack>
       
     </>
   )

@@ -7,6 +7,7 @@ import Logo from '../../assets/images/logo-forest-background.png'
 /* Custom Themed Elements */
 import ThemedText from '../../components/ThemedText';
 import { PrimaryBtn, DisplayLogo, SetColorMode } from '../../components/ThemedElements';
+import Spacer from '../../components/Spacer'
 
 
 const LoginLanding = () => {
@@ -18,14 +19,14 @@ const LoginLanding = () => {
 
         {/* Main Content */}
         <View style={styles.container}>
-          <DisplayLogo source={Logo} style={ {marginTop: 250} } />
+          <Spacer height={250} />
+          <DisplayLogo source={Logo} />
           <ThemedText type={'body'} mode={'dark'}>Get started by siging in or creating a new account</ThemedText>
 
           {/* Buttons */}
-          <View style={ {marginTop: 50} }>
-            <PrimaryBtn href="/signIn" text="Sign In"/>
-            <PrimaryBtn href="/createAccount" text="Create Account" style={ styles.button }/>
-          </View>
+          <Spacer height={50} />
+          <PrimaryBtn href="/signIn" text="Sign In"/>
+          <PrimaryBtn href="/createAccount" text="Create Account" style={ styles.button }/>
     
         </View>
       </View>
@@ -41,17 +42,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
     padding: 40
   },
-  image: {
-    width: 350,
-    height: 65,
-    marginTop: 100,
-    resizeMode: 'contain',
-    alignSelf: 'center'
-  },
   button: {
     backgroundColor: '#505535', 
     borderWidth: 2, 
-    borderColor: '#ECE7DF',
-    width: 300,
+    borderColor: '#ECE7DF'
   },
 })
