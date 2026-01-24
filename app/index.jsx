@@ -18,6 +18,8 @@ const Home = () => {
         <View>
           <PrimaryBtn href="/onboard1" text="START APP"/>
         </View>
+
+        <PrimaryBtn href='/home' text='SKIP LOGIN' />
         
       </View>
     </ThemedView>
