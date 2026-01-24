@@ -13,9 +13,12 @@ const Home = () => {
 
   return (
     <ThemedView style={styles.container}>
-      <View style={ {height: 475} }>
+      <View style={ {height: 475, alignItems: 'center'} }>
         <OnboardImage source={graphic}/>
-        <PrimaryBtn href="/onboard1" text="START APP"/>
+        <View>
+          <PrimaryBtn href="/onboard1" text="START APP"/>
+        </View>
+        
       </View>
     </ThemedView>
   )

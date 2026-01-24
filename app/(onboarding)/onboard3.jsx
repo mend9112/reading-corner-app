@@ -23,8 +23,10 @@ const Onboard3 = () => {
         <ThemedText type='ul'>• Book tracking and reading progress</ThemedText>
         <ThemedText type='ul'>• Custom shelves and statistics</ThemedText>
         <ThemedText type='ul'>• Book recommmendations based on your shelved books</ThemedText>
-
-        <PrimaryBtn href="/loginLanding" text="Get Started!"/>
+        <View style={{ alignItems: 'center' }}>
+          <PrimaryBtn href="/loginLanding" text="Get Started!"/>
+        </View>
+        
       </View>
 
       <ProgressBar name1="circle" name2="circle" name3="circle"/>

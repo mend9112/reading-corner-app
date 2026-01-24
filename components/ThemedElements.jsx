@@ -183,14 +183,21 @@ const PrimaryBtn = ( {href, text="Button", style, ...props} ) => {
   const theme = SetColorMode()
 
   return (
-    <View style={ [
-      styles.button, 
-      {backgroundColor: theme.btnPrimary},
-      style
-    ]} {...props}>
-      <Link href={href}>
-        <ThemedText type='btn-primary'>{text}</ThemedText>
-      </Link>
+    <View 
+    // style={{
+    //   flex: 1,
+    //   alignItems: 'center'
+    // }}
+    >
+      <View style={ [
+        styles.button, 
+        {backgroundColor: theme.btnPrimary},
+        style
+      ]} {...props}>
+        <Link href={href}>
+          <ThemedText type='btn-primary'>{text}</ThemedText>
+        </Link>
+      </View>
     </View>
   )
 }
