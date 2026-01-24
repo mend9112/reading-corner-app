@@ -1,32 +1,35 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
-import { Link } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+
+/* Image Imports */
 import Logo from '../../assets/images/logo-forest-background.png'
+
+/* Custom Themed Elements */
 import ThemedText from '../../components/ThemedText';
-import { PrimaryBtn } from '../../components/ThemedElements';
+import { PrimaryBtn, DisplayLogo, SetColorMode } from '../../components/ThemedElements';
 
 
 const LoginLanding = () => {
   return (
-    <View style={ {backgroundColor: '#505535', flex: 1} }>
-
-      {/* Back Link
-      <View style={styles.back}>
-        <Link href="/welcome3" style={ {color: '#ECE7DF'} }>&#60; Back</Link>
-      </View> */}
+    <>
+      <StatusBar style='light'/>
     
-      {/* Main Content */}
-      <View style={styles.container}>
-        <Image source={Logo} style={styles.image}/>
-        <ThemedText>Get started by siging in or creating a new account</ThemedText>
+      <View style={ {backgroundColor: '#505535', flex: 1} }>
 
-        {/* Buttons */}
-        <View style={ {marginTop: 50} }>
-          <PrimaryBtn href="/signIn" text="Sign In"/>
-          <PrimaryBtn href="/createAccount" text="Create Account" style={ styles.button }/>
+        {/* Main Content */}
+        <View style={styles.container}>
+          <DisplayLogo source={Logo} style={ {marginTop: 250} } />
+          <ThemedText type={'body'} mode={'dark'}>Get started by siging in or creating a new account</ThemedText>
+
+          {/* Buttons */}
+          <View style={ {marginTop: 50} }>
+            <PrimaryBtn href="/signIn" text="Sign In"/>
+            <PrimaryBtn href="/createAccount" text="Create Account" style={ styles.button }/>
+          </View>
+    
         </View>
-  
       </View>
-    </View>
+    </>
   )
 }
 
@@ -37,10 +40,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
     padding: 40
-  },
-  back: {
-    marginTop: 100,
-    marginLeft: 40
   },
   image: {
     width: 350,

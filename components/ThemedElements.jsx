@@ -18,9 +18,13 @@ Parameters: None
 Returns:    An object containing the theme colors based on the current color 
             scheme.
 *************************************************************************** */
-const SetColorMode = () => {
+const SetColorMode = (mode = '') => {
   const colorScheme = useColorScheme()
-  const theme = Colors[colorScheme] ?? Colors.light
+  let theme = Colors[colorScheme] ?? Colors.light
+
+  if (mode != '') {
+    theme = Colors.mode
+  }
 
   return theme
 }
@@ -63,6 +67,24 @@ const OnboardImage = ( {source} ) => {
 }
 
 export { OnboardImage }
+
+/* ***************************************************************************
+Function:   Logo
+
+Purpose:    Renders the app logo.
+
+Parameters: source - The source of the logo image to be displayed.
+            style  - Additional styles to apply to the logo image.
+
+Returns:    An Image component displaying the logo.
+*************************************************************************** */
+const DisplayLogo = ( {source, style} ) => {
+  return (
+    <Image source={source} style={ [ styles.logo, style] }/>
+  )
+}
+
+export { DisplayLogo }
 
 /* ***************************************************************************
 Function:   SkipButton
@@ -197,6 +219,12 @@ const styles = StyleSheet.create({
     height: 350,
     resizeMode: 'contain',
     marginBottom: 20,
+    alignSelf: 'center'
+  },
+  logo: {
+    width: 350,
+    height: 65,
+    resizeMode: 'contain',
     alignSelf: 'center'
   }
 })

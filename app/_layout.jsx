@@ -1,5 +1,4 @@
-import { Text, View } from 'react-native'
-import { Slot, Stack } from 'expo-router'
+import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 
 /* Custom Themed Elements */
@@ -7,7 +6,7 @@ import { SetColorMode } from '../components/ThemedElements'
 import { Colors } from '../constants/Colors'
 
 const RootLayout = () => {
-  const theme = SetColorMode();
+  const theme = SetColorMode()
 
   return (
     <>
@@ -19,6 +18,7 @@ const RootLayout = () => {
         contentStyle: { backgroundColor: theme.background }
       }}>
         <Stack.Screen name="(onboarding)" options={{ headerShown: false, animation: 'none' }} />
+        <Stack.Screen name="(auth)" options={{ headerBackTitle: 'Back', headerTitle: '', headerTransparent: true }} />        
         <Stack.Screen name="index" options={{ headerShown: false, animation: 'none' }} />
 
       </Stack>

@@ -1,5 +1,4 @@
-import { Text, View } from 'react-native'
-import { Slot, Stack } from 'expo-router'
+import { Slot } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 
 /* Custom Themed Elements */

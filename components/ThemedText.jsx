@@ -1,10 +1,14 @@
 import { StyleSheet, Text, useColorScheme } from 'react-native'
 import { useFonts, Lato_400Regular, Lato_900Black } from '@expo-google-fonts/lato';
 import { SetColorMode } from './ThemedElements'
+import { Colors } from '../constants/Colors'
 
-const ThemedText = ( { style, type = 'body', ...props} ) => {
+const ThemedText = ( { style, type = 'body', mode = '', ...props} ) => {
   
-  const theme = SetColorMode()
+  let theme = SetColorMode()
+  if (mode != '') {
+    theme = Colors[mode]
+  }
 
   const [loaded] = useFonts({
     Lato_400Regular,
@@ -51,6 +55,7 @@ const styles = StyleSheet.create({
   },
   body: {
     fontFamily: 'Lato_400Regular',
+    fontSize: 15
   },
   ul: {
     fontFamily: 'Lato_400Regular',

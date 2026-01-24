@@ -1,24 +1,23 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
 import { Stack } from 'expo-router'
+import { StatusBar } from 'expo-status-bar'
 
 /* Custom Themed Elements */
 import { SetColorMode } from '../../components/ThemedElements'
 
 const AuthLayout = () => {
-  const theme = SetColorMode();
+  // const theme = SetColorMode();
   
   return (
     <>
+      <StatusBar style="auto" />
       <Stack screenOptions={{
-        headerBackTitle: 'Back',
-        animation: 'none',
-        contentStyle: { backgroundColor: theme.background }
-      }}/>
+        headerShown: false,
+        // contentStyle: { backgroundColor: theme.background }
+      }}>
+.      </Stack>
+      
     </>
   )
 }
 
 export default AuthLayout
-
-const styles = StyleSheet.create({})
