@@ -63,7 +63,6 @@ const TabsLayout = () => {
           name={focused ? 'person' : 'person-outline'}
           color={Colors.iconColor} />
         )}} />
-
       </Tabs>
 
       

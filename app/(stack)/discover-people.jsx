@@ -6,7 +6,7 @@ import ThemedText from '../../components/ThemedText';
 import Spacer from '../../components/Spacer';
 import { ThemedLink  } from '../../components/ThemedElements';
 
-const Discover = () => {
+const DiscoverPeople = () => {
   
 
   return (
@@ -20,28 +20,25 @@ const Discover = () => {
 
       <Spacer height={15} />
 
-      <ThemedText type='subheader'>Trending</ThemedText>
-      <ThemedLink href='/shelf' text='View Trending Shelf'/>
+      <ThemedText type='subheader'>Suggested People</ThemedText>
+      {/* <ThemedLink href='/shelf' text='View Trending Shelf'/> */}
+
+      <ThemedText type='subheader'>Posts for You</ThemedText>
+
+      <View>
+        <ThemedLink href='/other-profile' text='Other - Post 1'/>
+        <ThemedLink href='/other-profile' text='Other - Post 2'/>
+        <ThemedLink href='/other-profile' text='Other - Post 3'/>
+        <ThemedLink href='/other-profile' text='Other - Post 4'/>
+      </View>
 
       <Spacer height={15} />
 
-      <ThemedText type='subheader'>For You</ThemedText>
-      <ThemedLink href='/shelf' text='View For You Shelf'/>
-
-      <Spacer height={15} />
-
-      <ThemedText type='subheader'>Because You Liked "The Priority of the Orange Tree"</ThemedText>
-      <ThemedLink href='/shelf' text='View Because you Liked Shelf'/>
-
-      <Spacer height={15} />
-
-      <ThemedText type='subheader'>Your Friends' Recent Reads</ThemedText>
-      <ThemedLink href='/shelf' text='View Your Friends Shelf'/>
     </ThemedView>
   )
 }
 
-export default Discover
+export default DiscoverPeople
 
 export const styles = StyleSheet.create({
   container: {

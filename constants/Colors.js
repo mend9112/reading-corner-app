@@ -39,7 +39,7 @@ export const Colors = {
   },
   light: {
     header: colorsRC.forest,
-    subheader: colorsRC.sage,
+    subheader: colorsRC.forest,
     text: colorsRC.ink,
     background: colorsRC.offWhite,
     

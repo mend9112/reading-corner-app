@@ -46,12 +46,13 @@ export default ThemedText
 const styles = StyleSheet.create({
   header: {
     fontFamily: 'Panel-Sans-Black',
-    fontSize: 24,
+    fontSize: 26,
     textAlign: 'center',
     fontWeight: 'bold'
   },
   subheader: {
-    fontSize: 22,
+    fontFamily: 'Panel-Sans-Bold',
+    fontSize: 18,
     textAlign: 'center',
     fontWeight: '600'
   },

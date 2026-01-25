@@ -1,0 +1,14 @@
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+
+const Shelf = () => {
+  return (
+    <View>
+      <Text>Shelf</Text>
+    </View>
+  )
+}
+
+export default Shelf
+
+const styles = StyleSheet.create({})
