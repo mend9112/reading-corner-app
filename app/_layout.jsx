@@ -22,6 +22,8 @@ const RootLayout = () => {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="index" options={{ headerShown: false, animation: 'none' }} />
 
+        <Stack.Screen name="new-post" options={{ title: 'New Post', presentation: 'modal' }} />
+
       </Stack>
     </>
   )

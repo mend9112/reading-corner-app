@@ -1,21 +1,29 @@
 import { StyleSheet, Text, View } from 'react-native'
+import { Stack } from 'expo-router';
 
-// Custom Themed Components
+/* Custom Themed Elements */
 import ThemedView from '../../components/ThemedView';
 import ThemedText from '../../components/ThemedText';
-import Spacer from '../../components/Spacer';
 import { ThemedLink  } from '../../components/ThemedElements';
+import Spacer from '../../components/Spacer';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 const Home = () => {
-  
+  const headerRight = () => {
+    return (
+      <ThemedLink href='/new-post' text={
+        <FontAwesome name="plus-square-o" size={30} />} 
+      />
+    )
+  }
+
 
   return (
     <ThemedView style={styles.container}>
+      <Stack.Screen options={{ headerRight }} />
       <ThemedText type='header'>Home</ThemedText>
 
       <Spacer height={15} />
-
-      <ThemedLink href='/new-post' text='New Post'/>
       
       {/* View of Dynamic Posts */}
       <View>

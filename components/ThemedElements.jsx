@@ -1,5 +1,6 @@
-import { StyleSheet, useColorScheme, Image, View, TextInput } from 'react-native'
-import { Link } from 'expo-router'
+import { StyleSheet, TouchableOpacity, useColorScheme, Image, View, TextInput } from 'react-native'
+
+import { router, Link } from 'expo-router'
 
 /* Icon Imports */
 import FontAwesome from '@expo/vector-icons/FontAwesome';
@@ -183,12 +184,7 @@ const PrimaryBtn = ( {href, text="Button", style, ...props} ) => {
   const theme = SetColorMode()
 
   return (
-    <View 
-    // style={{
-    //   flex: 1,
-    //   alignItems: 'center'
-    // }}
-    >
+    
       <View style={ [
         styles.button, 
         {backgroundColor: theme.btnPrimary},
@@ -198,11 +194,42 @@ const PrimaryBtn = ( {href, text="Button", style, ...props} ) => {
           <ThemedText type='btn-primary'>{text}</ThemedText>
         </Link>
       </View>
-    </View>
+    
   )
 }
 
 export { PrimaryBtn }
+
+/* ***************************************************************************
+Function:   BackBtn
+
+Purpose:    Renders a primary button that navigates back to the previous screen.
+
+Parameters: href  - The URL to navigate to when the button is pressed.
+            text  - The text to display on the button (default is "Button").
+            style - Additional styles to apply to the button.
+
+Returns:    A View component styled as a primary button containing a TouchableOpacity.
+*************************************************************************** */
+const BackBtn = ( {text="Button", style, ...props} ) => {
+  const theme = SetColorMode()
+
+  return (
+    
+      <View style={ [
+        styles.button, 
+        {backgroundColor: theme.btnPrimary, width: 100, marginTop: 0},
+        style
+      ]} {...props}>
+        <TouchableOpacity onPress={async() => router.back()}>
+          <ThemedText type='btn-primary'>{text}</ThemedText>
+        </TouchableOpacity>
+      </View>
+    
+  )
+}
+
+export { BackBtn }
 
 const ThemedLink = ({ href, text, style, ...props }) => {
   const theme = SetColorMode()
@@ -238,33 +265,30 @@ const ThemedTextInput = ({ text, style }) => {
         placeholder={text}>
       </TextInput>
     </View>
-
-    // <Octicons name="person" size={24} color={theme.bubble} />
   )
 }
 
 export { ThemedTextInput }
 
-const Icon = ({ lib, iconName, iconsSize, iconColor }) => {
-  let Component
-  if (lib === 'Octicons')
-  {
-    Component = <Octicons />
-  }
-  else if (lib === 'FontAwesome')
-  {
-    Component = <FontAwesome />
-  }
-  else {
-    //return null
-  }
+const ThemedTextArea = ({ text, style }) => {
+  const theme = SetColorMode()
 
   return (
-    <Component name={iconName} size={iconsSize} color={iconColor} />
+    <View>
+      <TextInput
+        style={[ 
+          styles.textarea,
+          {backgroundColor: theme.bubble},
+          style
+        ]}
+        multiline={true}
+        placeholder={text}>
+      </TextInput>
+    </View>
   )
 }
 
-export { Icon }
+export { ThemedTextArea }
 
 /* Stylesheet for ThemedElement components */
 const styles = StyleSheet.create({
@@ -308,6 +332,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     width: 350,
     alignSelf: 'center'
+  },
+  textarea: {
+    padding: 15,
+    height: 300,
+    width: '100%',
+    alignSelf: 'center',
   },
   link: {
     color: '#C67D43'
