@@ -8,7 +8,7 @@ import Spacer from '../components/Spacer';
 import { BackBtn, ThemedTextArea  } from '../components/ThemedElements';
 
 
-const NewPost = () => {
+const UpdateProgress = () => {
 
   return (
     <ThemedView style={styles.container}>
@@ -27,13 +27,13 @@ const NewPost = () => {
 
       <Spacer height={20} />
 
-      <ThemedTextArea text='What would you like to share?' />
+      <ThemedTextArea text="Anything you'd like to share" />
       
     </ThemedView>
   )
 }
 
-export default NewPost
+export default UpdateProgress
 
 export const styles = StyleSheet.create({
   container: {
